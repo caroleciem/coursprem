@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a086dc60-882b-4808-af37-f257f7e63235" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src" />
+  </component>
+  <component name="ProjectId" id="1S3jMilc6WXa14KBWWpW6aHq1fq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../javacours/src/Seminar/Seminar.java" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ProjetFichier3" />
+      <recent name="ProjetFichier" />
+      <recent name="ProjetFichierMVP" />
+      <recent name="Projetfichier" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ProjetFichier3" />
+      <recent name="$PROJECT_DIR$/src/ProjetFichier" />
+      <recent name="$PROJECT_DIR$/src/Projetfichier" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ProjetFichier3" />
+      <recent name="ProjetFichier" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ProjetFichierMVP" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/Projetfichier/ressources" />
+      <recent name="$PROJECT_DIR$/src/Projetfichier" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.MenuProjet2">
+    <configuration name="Compter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Compter" />
+      <module name="projetjava" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;Spinoza-Ethique.txt&quot; &quot;Spinoza-Ethique-Trt.txt&quot;" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompterArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CompterArray" />
+      <module name="projetjava" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuProjet" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ProjetFichierMVP.MenuProjet" />
+      <module name="projetjava" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuProjet2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ProjetFichier.MenuProjet2" />
+      <module name="projetjava" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;Spinoza-Traite_Politique.txt&quot;" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ProjetFichier.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuProjet" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ProjetFichier.MenuProjet" />
+      <module name="projetjava" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;Spinoza-Reforme-Trt.txt&quot; &quot;Spinoza-Ethique-Trt.txt&quot;" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ProjetFichier.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Compter" />
+      <item itemvalue="Application.CompterArray" />
+      <item itemvalue="Application.MenuProjet" />
+      <item itemvalue="Application.MenuProjet2" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MenuProjet2" />
+        <item itemvalue="Application.MenuProjet" />
+        <item itemvalue="Application.MenuProjet" />
+        <item itemvalue="Application.Compter" />
+        <item itemvalue="Application.CompterArray" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a086dc60-882b-4808-af37-f257f7e63235" name="Default Changelist" comment="" />
+      <created>1570799126576</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1570799126576</updated>
+      <workItem from="1570799136212" duration="1699000" />
+      <workItem from="1570802126994" duration="7201000" />
+      <workItem from="1571038009118" duration="2491000" />
+      <workItem from="1571140863540" duration="198000" />
+      <workItem from="1571209782583" duration="22144000" />
+      <workItem from="1571237195165" duration="5033000" />
+      <workItem from="1571295715596" duration="27438000" />
+      <workItem from="1571382422254" duration="4303000" />
+      <workItem from="1571428366585" duration="209000" />
+      <workItem from="1571600006302" duration="18000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ProjetFichierMVP/MenuProjet.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ProjetFichierMVP/MenuLivres.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ProjetFichier/MenuProjet2.java</url>
+          <line>183</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ProjetFichier/MenuLivres2.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

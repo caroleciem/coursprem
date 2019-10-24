@@ -1,0 +1,1225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<!-- 2019-10-16 Wed 01:51 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Références en Java</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Bernard Hugueney" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<style>*{font-family: monospace !important}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Références en Java</h1>
+<div id="table-of-contents">
+<h2>Table des matières</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge515481">1. Références en Java</a></li>
+<li><a href="#orgee194f2">2. Égalité et identité</a>
+<ul>
+<li><a href="#orge2191a2">2.1. Contra. types primitifs</a>
+<ul>
+<li><a href="#org28307ee">2.1.1. Déclaration</a></li>
+<li><a href="#org6c2d542">2.1.2. Affectation</a></li>
+</ul>
+</li>
+<li><a href="#org835a254">2.2. Chaîne de caractères</a>
+<ul>
+<li><a href="#org31de0e6">2.2.1. Déclaration</a></li>
+<li><a href="#org797fd9d">2.2.2. Affectation</a></li>
+<li><a href="#org6ec68f0">2.2.3. Affectations</a></li>
+<li><a href="#org54ba187">2.2.4. Affectations 2</a></li>
+</ul>
+</li>
+<li><a href="#org672701d">2.3. Tableaux</a>
+<ul>
+<li><a href="#org29d2e59">2.3.1. Déclaration</a></li>
+<li><a href="#org0ca4171">2.3.2. Affectation</a></li>
+<li><a href="#orgd021d8e">2.3.3. Affectations</a></li>
+<li><a href="#orgf837135">2.3.4. Affectations 2</a></li>
+</ul>
+</li>
+<li><a href="#org44a2960">2.4. Objets</a>
+<ul>
+<li><a href="#orgd769971">2.4.1. Déclaration</a></li>
+<li><a href="#org94aeef3">2.4.2. Affectation</a></li>
+<li><a href="#org243a198">2.4.3. Affectations</a></li>
+<li><a href="#org9ae1aaa">2.4.4. Affectations 2</a></li>
+<li><a href="#orgac5fb60">2.4.5. equals()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org8ff8247">3. Combinaisons</a>
+<ul>
+<li><a href="#org7bb491d">3.1. Tableaux de tableaux</a>
+<ul>
+<li><a href="#org55b5af3">3.1.1. Déclaration</a></li>
+<li><a href="#org173b9e5">3.1.2. Initialisation partielle</a></li>
+<li><a href="#org174b456">3.1.3. Initialisation</a></li>
+<li><a href="#org5d639c7">3.1.4. Affectation</a></li>
+<li><a href="#org1517da4">3.1.5. Copie superficielle</a></li>
+<li><a href="#org0a6f359">3.1.6. Copie profonde</a></li>
+<li><a href="#org0762170">3.1.7. Égalité</a></li>
+</ul>
+</li>
+<li><a href="#org6e2d4d2">3.2. Objets contenant des objets</a>
+<ul>
+<li><a href="#orgc296971">3.2.1. Déclaration</a></li>
+<li><a href="#org23f8758">3.2.2. Affectations</a></li>
+<li><a href="#orgc9cb9e5">3.2.3. clone()</a></li>
+<li><a href="#org735975c">3.2.4. constructeur par copie</a></li>
+</ul>
+</li>
+<li><a href="#org59add40">3.3. Remarque sur les objets de classes immuables</a></li>
+<li><a href="#orgab6c1ea">3.4. equals()</a></li>
+<li><a href="#org3bf313e">3.5. Tableaux d'objets</a></li>
+</ul>
+</li>
+<li><a href="#orga530fb3">4. Exercices</a>
+<ul>
+<li><a href="#org37138d5">4.1. Tableau à deux dimensions de caractères</a></li>
+<li><a href="#org2770bdc">4.2. Tableaux à deux dimensions d'objets</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge515481" class="outline-2">
+<h2 id="orge515481"><span class="section-number-2">1</span> Références en Java</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Tous les objets et tous les tableaux sont manipulés à travers des
+<b>références</b>. En fait, elles correspondent à l'adresse d'un objet ou
+d'un tableau.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgee194f2" class="outline-2">
+<h2 id="orgee194f2"><span class="section-number-2">2</span> Égalité et identité</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Si 'deux' valeurs sont au même endroit en mémoire, il s'agit en fait
+de la même valeurs : elles sont <b>identiques</b>.
+</p>
+</div>
+
+<div id="outline-container-orge2191a2" class="outline-3">
+<h3 id="orge2191a2"><span class="section-number-3">2.1</span> Contra. types primitifs</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Des valeurs de types primitifs ne sont jamais <b>identiques</b>.
+</p>
+</div>
+<div id="outline-container-org28307ee" class="outline-4">
+<h4 id="org28307ee"><span class="section-number-4">2.1.1</span> Déclaration</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+Si l'on exécute le code suivant:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">score</span>; <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">not a local variable</span>
+</pre>
+</div>
+<p>
+Il y a un <code class="src src-java"><span style="color: #6434A3;">int</span></code> en mémoire.
+</p>
+
+
+<div class="figure">
+<p><img src="img/ref-int-0.png" alt="ref-int-0.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6c2d542" class="outline-4">
+<h4 id="org6c2d542"><span class="section-number-4">2.1.2</span> Affectation</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">score</span>= 0;
+<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">other</span>= score;
+</pre>
+</div>
+<p>
+<code class="src src-java">score</code> et <code class="src src-java">other</code> sont
+des <code class="src src-java"><span style="color: #6434A3;">int</span></code> <b>égaux</b>.
+</p>
+
+<div class="figure">
+<p><img src="img/ref-int-1.png" alt="ref-int-1.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org835a254" class="outline-3">
+<h3 id="org835a254"><span class="section-number-3">2.2</span> Chaîne de caractères</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org31de0e6" class="outline-4">
+<h4 id="org31de0e6"><span class="section-number-4">2.2.1</span> Déclaration</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Si l'on exécute le code suivant:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">firstname</span>;
+</pre>
+</div>
+<p>
+Il n'y a <b>AUCUNE</b> chaîne de caractères en mémoire.
+</p>
+
+
+<div class="figure">
+<p><img src="img/ref-string-0.png" alt="ref-string-0.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org797fd9d" class="outline-4">
+<h4 id="org797fd9d"><span class="section-number-4">2.2.2</span> Affectation</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">firstname</span>= <span style="color: #008000;">"Bernard"</span>;
+</pre>
+</div>
+
+<div class="figure">
+<p><img src="img/ref-string-1.png" alt="ref-string-1.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6ec68f0" class="outline-4">
+<h4 id="org6ec68f0"><span class="section-number-4">2.2.3</span> Affectations</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">firstname</span>= <span style="color: #008000;">"Bernard"</span>;
+<span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">other</span>= firstname;
+</pre>
+</div>
+<p>
+<code class="src src-java">firstname</code> et <code class="src src-java">other</code>
+sont des chaînes de caractères <b>identiques</b>.
+</p>
+
+<div class="figure">
+<p><img src="img/ref-string-2.png" alt="ref-string-2.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org54ba187" class="outline-4">
+<h4 id="org54ba187"><span class="section-number-4">2.2.4</span> Affectations 2</h4>
+<div class="outline-text-4" id="text-2-2-4">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">firstname</span>= <span style="color: #008000;">"Bernard"</span>;
+<span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">other</span>= firstname;
+<span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">another</span>= <span style="color: #008000;">"Ber"</span>+<span style="color: #008000;">"nard"</span>;
+</pre>
+</div>
+<p>
+<code class="src src-java">firstname</code> et <code class="src src-java">other</code>
+sont <b>identiques</b> entre elles et seulement <b>égales</b> à
+<code class="src src-java">another</code>.
+</p>
+
+<div class="figure">
+<p><img src="img/ref-string-3.png" alt="ref-string-3.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org672701d" class="outline-3">
+<h3 id="org672701d"><span class="section-number-3">2.3</span> Tableaux</h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<div id="outline-container-org29d2e59" class="outline-4">
+<h4 id="org29d2e59"><span class="section-number-4">2.3.1</span> Déclaration</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<p>
+Si l'on exécute le code suivant:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">int</span>[] <span style="color: #BA36A5;">originalData</span>;
+</pre>
+</div>
+<p>
+Il n'y a <b>AUCUN</b> tableau en mémoire.
+</p>
+
+
+<div class="figure">
+<p><img src="img/ref-array-0.png" alt="ref-array-0.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0ca4171" class="outline-4">
+<h4 id="org0ca4171"><span class="section-number-4">2.3.2</span> Affectation</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">int</span>[] <span style="color: #BA36A5;">originalData</span>= {1,3,0};
+</pre>
+</div>
+
+<div class="figure">
+<p><img src="img/ref-array-1.png" alt="ref-array-1.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd021d8e" class="outline-4">
+<h4 id="orgd021d8e"><span class="section-number-4">2.3.3</span> Affectations</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">int</span>[] <span style="color: #BA36A5;">originalData</span>= {1,3,0};
+<span style="color: #6434A3;">int</span>[] <span style="color: #BA36A5;">other</span>= originalData;
+</pre>
+</div>
+<p>
+<code class="src src-java">originalData</code> et <code class="src src-java">other</code> sont des tableaux <b>identiques</b>.
+</p>
+
+<div class="figure">
+<p><img src="img/ref-array-2.png" alt="ref-array-2.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf837135" class="outline-4">
+<h4 id="orgf837135"><span class="section-number-4">2.3.4</span> Affectations 2</h4>
+<div class="outline-text-4" id="text-2-3-4">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">int</span>[] <span style="color: #BA36A5;">originalData</span>= {1,3,0};
+<span style="color: #6434A3;">int</span>[] <span style="color: #BA36A5;">other</span>= originalData;
+<span style="color: #6434A3;">int</span>[] <span style="color: #BA36A5;">another</span>= {1,3,0};<span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">or with new int[] and assignments</span>
+</pre>
+</div>
+<p>
+<code class="src src-java">originalData</code> et <code class="src src-java">other</code> sont <b>identiques</b> entre elles et seulement <b>égales</b> à
+<code class="src src-java">another</code>.  Comment tester l'égalité ?
+</p>
+
+<div class="figure">
+<p><img src="img/ref-array-3.png" alt="ref-array-3.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org44a2960" class="outline-3">
+<h3 id="org44a2960"><span class="section-number-3">2.4</span> Objets</h3>
+<div class="outline-text-3" id="text-2-4">
+</div>
+<div id="outline-container-orgd769971" class="outline-4">
+<h4 id="orgd769971"><span class="section-number-4">2.4.1</span> Déclaration</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<p>
+Si l'on exécute le code suivant:
+</p>
+<div class="org-src-container">
+<pre class="src src-java">  <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">Person</span>{
+      <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">firstname</span>;
+      <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">lastname</span>;
+      <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">age</span>;
+      <span style="color: #0000FF;">public</span> <span style="color: #006699;">Person</span>(<span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">firstname</span>, <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">lastname</span>, <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">age</span>){
+          <span style="color: #0000FF;">this</span>.firstname= firstname;
+          <span style="color: #0000FF;">this</span>.lastname= lastname;
+          <span style="color: #0000FF;">this</span>.age= age;
+      }
+  }
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">Person</span> <span style="color: #BA36A5;">customer</span>;
+</pre>
+</div>
+<p>
+Il n'y a <b>AUCUN</b> objet de classe <code class="src src-java">Person</code> en
+mémoire.
+</p>
+
+
+<div class="figure">
+<p><img src="img/ref-object-0.png" alt="ref-object-0.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org94aeef3" class="outline-4">
+<h4 id="org94aeef3"><span class="section-number-4">2.4.2</span> Affectation</h4>
+<div class="outline-text-4" id="text-2-4-2">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">Person</span> <span style="color: #BA36A5;">customer</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Person</span>(<span style="color: #008000;">"Clark"</span>, <span style="color: #008000;">"Kent"</span>, 42);
+</pre>
+</div>
+
+<div class="figure">
+<p><img src="img/ref-object-1.png" alt="ref-object-1.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org243a198" class="outline-4">
+<h4 id="org243a198"><span class="section-number-4">2.4.3</span> Affectations</h4>
+<div class="outline-text-4" id="text-2-4-3">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">Person</span> <span style="color: #BA36A5;">customer</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Person</span>(<span style="color: #008000;">"Clark"</span>, <span style="color: #008000;">"Kent"</span>, 42);
+<span style="color: #6434A3;">Person</span> <span style="color: #BA36A5;">other</span>= customer;
+</pre>
+</div>
+<p>
+<code class="src src-java">customer</code> et <code class="src src-java">other</code> sont
+des objets <b>identiques</b>.
+</p>
+
+<div class="figure">
+<p><img src="img/ref-objects-2.png" alt="ref-objects-2.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9ae1aaa" class="outline-4">
+<h4 id="org9ae1aaa"><span class="section-number-4">2.4.4</span> Affectations 2</h4>
+<div class="outline-text-4" id="text-2-4-4">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">Person</span> <span style="color: #BA36A5;">customer</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Person</span>(<span style="color: #008000;">"Clark"</span>, <span style="color: #008000;">"Kent"</span>, 42);
+<span style="color: #6434A3;">Person</span> <span style="color: #BA36A5;">other</span>= customer;
+<span style="color: #6434A3;">Person</span> <span style="color: #BA36A5;">another</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Person</span>(<span style="color: #008000;">"Clark"</span>, <span style="color: #008000;">"Kent"</span>, 42);
+</pre>
+</div>
+<p>
+<code class="src src-java">customer</code> et <code class="src src-java">other</code> sont
+<b>identiques</b> entre elles et seulement <b>égales</b> à <code class="src src-java">another</code>.  Comment tester l'égalité ?
+</p>
+
+<div class="figure">
+<p><img src="img/ref-object-3.png" alt="ref-object-3.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgac5fb60" class="outline-4">
+<h4 id="orgac5fb60"><span class="section-number-4">2.4.5</span> equals()</h4>
+<div class="outline-text-4" id="text-2-4-5">
+<p>
+On redéfini la méthode <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#equals-java.lang.Object-">equals(Object other)</a>:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">Person</span>{
+    <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">firstname</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">lastname</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">age</span>;
+
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">Person</span>(<span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">firstname</span>, <span style="color: #6434A3;">String</span> <span style="color: #BA36A5;">lastname</span>, <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">age</span>){
+        <span style="color: #0000FF;">this</span>.firstname= firstname;
+        <span style="color: #0000FF;">this</span>.lastname= lastname;
+        <span style="color: #0000FF;">this</span>.age= age;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">Person</span>(<span style="color: #6434A3;">Person</span> <span style="color: #BA36A5;">other</span>){
+        <span style="color: #0000FF;">this</span>(other.firstname, other.lastname, other.age);
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">boolean</span> <span style="color: #006699;">equals</span>(<span style="color: #6434A3;">Object</span> <span style="color: #BA36A5;">other</span>){
+        <span style="color: #0000FF;">if</span>(other != <span style="color: #D0372D;">null</span> &amp;&amp; (other <span style="color: #0000FF;">instanceof</span> Person)){
+            <span style="color: #6434A3;">Person</span> <span style="color: #BA36A5;">otherPerson</span>= (<span style="color: #6434A3;">Person</span>) other;
+            <span style="color: #0000FF;">if</span>(firstname.equals(otherPerson.firstname) 
+               &amp;&amp; lastname.equals(otherPerson.lastname)
+               &amp;&amp; (age == otherPerson.age)){
+                <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">true</span>;
+            }
+        }
+        <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">false</span>;
+    }
+}
+</pre>
+</div>
+<p>
+Analyser et comprendre chacune des opérations de cette méthode.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org8ff8247" class="outline-2">
+<h2 id="org8ff8247"><span class="section-number-2">3</span> Combinaisons</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org7bb491d" class="outline-3">
+<h3 id="org7bb491d"><span class="section-number-3">3.1</span> Tableaux de tableaux</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-org55b5af3" class="outline-4">
+<h4 id="org55b5af3"><span class="section-number-4">3.1.1</span> Déclaration</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+Avec une simple déclaration, il n'y a <b>aucun</b> tableau en mémoire.
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">int</span>[][] <span style="color: #BA36A5;">data</span>;
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="img/ref-array2d-0.png" alt="ref-array2d-0.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org173b9e5" class="outline-4">
+<h4 id="org173b9e5"><span class="section-number-4">3.1.2</span> Initialisation partielle</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+Si l'on ne crée qu'un seul tableau, il n'y a qu'un tableau qui <b>pourra</b> contrenir des références vers des tableaux.
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">int</span>[][] <span style="color: #BA36A5;">data</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">int</span>[2][];
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="img/ref-array2d-1.png" alt="ref-array2d-1.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org174b456" class="outline-4">
+<h4 id="org174b456"><span class="section-number-4">3.1.3</span> Initialisation</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+Il faut initialiser chacune des cases de tableau de tableaux.
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">int</span>[][] <span style="color: #BA36A5;">data</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">int</span>[2][];
+<span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>=0; i != data.length; ++i){
+  data[i]= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">int</span>[2+i];
+}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="img/ref-array2d-2.png" alt="ref-array2d-2.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5d639c7" class="outline-4">
+<h4 id="org5d639c7"><span class="section-number-4">3.1.4</span> Affectation</h4>
+<div class="outline-text-4" id="text-3-1-4">
+<p>
+Si l'on ne crée pas d'autres tableaux, il n'y a pas d'autre tableau !
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">int</span>[][] <span style="color: #BA36A5;">data</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">int</span>[2][];
+<span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>=0; i != data.length; ++i){
+  data[i]= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">int</span>[2+i];
+}
+<span style="color: #6434A3;">int</span> [][] <span style="color: #BA36A5;">other</span>= data;
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="img/ref-array2d-3.png" alt="ref-array2d-3.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1517da4" class="outline-4">
+<h4 id="org1517da4"><span class="section-number-4">3.1.5</span> Copie superficielle</h4>
+<div class="outline-text-4" id="text-3-1-5">
+<p>
+Si l'on ne copie que le tableau de tableaux, seul celui-ci est
+recopié, pas son contenu.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">int</span>[][] <span style="color: #BA36A5;">data</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">int</span>[2][];
+<span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>=0; i != data.length; ++i){
+  data[i]= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">int</span>[2+i];
+}
+<span style="color: #6434A3;">int</span> [][] <span style="color: #BA36A5;">other</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">int</span>[data.length][];
+<span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>=0; i != data.length; ++i){
+  other[i]= data[i];
+}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="img/ref-array2d-4.png" alt="ref-array2d-4.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0a6f359" class="outline-4">
+<h4 id="org0a6f359"><span class="section-number-4">3.1.6</span> Copie profonde</h4>
+<div class="outline-text-4" id="text-3-1-6">
+<div class="org-src-container">
+<pre class="src src-java">  <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">int</span>[][] <span style="color: #006699;">deepCopy</span>(<span style="color: #6434A3;">int</span>[][] <span style="color: #BA36A5;">data</span>){
+      <span style="color: #6434A3;">int</span> [][] <span style="color: #BA36A5;">result</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">int</span>[data.length][];
+      <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>=0; i != data.length; ++i){
+          result[i]= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">int</span>[data[i].length];
+          <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> =0; j != data[i].length; ++j){
+              result[i][j]= data[i][j];
+          }
+      }
+      <span style="color: #0000FF;">return</span> result;
+  }
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="img/ref-array2d-5.png" alt="ref-array2d-5.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0762170" class="outline-4">
+<h4 id="org0762170"><span class="section-number-4">3.1.7</span> Égalité</h4>
+<div class="outline-text-4" id="text-3-1-7">
+<p>
+Comment tester l'égalité ?
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6e2d4d2" class="outline-3">
+<h3 id="org6e2d4d2"><span class="section-number-3">3.2</span> Objets contenant des objets</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Soit la classe (problématique) suivante :
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">ProgrammingPair</span> {
+  <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">Person</span> <span style="color: #BA36A5;">driver</span>;
+  <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">Person</span> <span style="color: #BA36A5;">navigator</span>;
+  <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">Person</span> <span style="color: #006699;">getDriver</span>(){ <span style="color: #0000FF;">return</span> driver;}
+  <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">setDriver</span>(<span style="color: #6434A3;">Person</span> <span style="color: #BA36A5;">driver</span>){ <span style="color: #0000FF;">this</span>.driver= driver;}
+  <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">Person</span> <span style="color: #006699;">getNavigator</span>(){ <span style="color: #0000FF;">return</span> navigator;}
+  <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">setNavigator</span>(<span style="color: #6434A3;">Person</span> <span style="color: #BA36A5;">navigator</span>){ <span style="color: #0000FF;">this</span>.navigator= navigator;}
+
+}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc296971" class="outline-4">
+<h4 id="orgc296971"><span class="section-number-4">3.2.1</span> Déclaration</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+Encore une fois, la simple déclaration ne crée aucun objet.
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">ProgrammingPair</span> <span style="color: #BA36A5;">pair</span>;
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="img/ref-object-object-0.png" alt="ref-object-object-0.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org23f8758" class="outline-4">
+<h4 id="org23f8758"><span class="section-number-4">3.2.2</span> Affectations</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">ProgrammingPair</span> <span style="color: #BA36A5;">pair</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">ProgrammingPair</span>();
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="img/ref-object-object-1.png" alt="ref-object-object-1.png" />
+</p>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">ProgrammingPair</span> <span style="color: #BA36A5;">pair</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">ProgrammingPair</span>();
+pair.setDriver(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Person</span>(<span style="color: #008000;">"Clark"</span>, <span style="color: #008000;">"Kent"</span>, 42));
+pair.setNavigator(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Person</span>(<span style="color: #008000;">"Lex"</span>, <span style="color: #008000;">"Luthor"</span>, 45));
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="img/ref-object-object-2.png" alt="ref-object-object-2.png" />
+</p>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">ProgrammingPair</span> <span style="color: #BA36A5;">pair</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">ProgrammingPair</span>();
+pair.setDriver(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Person</span>(<span style="color: #008000;">"Clark"</span>, <span style="color: #008000;">"Kent"</span>, 42));
+pair.setNavigator(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Person</span>(<span style="color: #008000;">"Lex"</span>, <span style="color: #008000;">"Luthor"</span>, 45));
+<span style="color: #6434A3;">ProgrammingPair</span> <span style="color: #BA36A5;">other</span>= pair;
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="img/ref-object-object-3.png" alt="ref-object-object-3.png" />
+</p>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">ProgrammingPair</span> <span style="color: #BA36A5;">pair</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">ProgrammingPair</span>();
+pair.setDriver(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Person</span>(<span style="color: #008000;">"Clark"</span>, <span style="color: #008000;">"Kent"</span>, 42));
+pair.setNavigator(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Person</span>(<span style="color: #008000;">"Lex"</span>, <span style="color: #008000;">"Luthor"</span>, 45));
+<span style="color: #6434A3;">ProgrammingPair</span> <span style="color: #BA36A5;">other</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">ProgrammingPair</span>();
+other.setDriver(pair.getDriver());
+other.setNavigator(pair.getNavigator());
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="img/ref-object-object-4.png" alt="ref-object-object-4.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc9cb9e5" class="outline-4">
+<h4 id="orgc9cb9e5"><span class="section-number-4">3.2.3</span> clone()</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<p>
+Pour construire un nouvel objet qui est une copie, il a été
+conventionnel d'utiliser une méthode <code class="src src-java">clone</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java">  <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">ProgrammingPair</span> <span style="color: #006699;">clone</span>(){
+      <span style="color: #0000FF;">return</span> <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">ProgrammingPair</span>(driver, navigator); <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">this cstor should exist anyway !</span>
+  }
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6434A3;">ProgrammingPair</span> <span style="color: #BA36A5;">pair</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">ProgrammingPair</span>(<span style="color: #008000;">"Clark"</span>, <span style="color: #008000;">"Kent"</span>, 42);
+<span style="color: #6434A3;">ProgrammingPair</span> <span style="color: #BA36A5;">other</span>= pair.clone();
+</pre>
+</div>
+
+<p>
+En fait, on utilise plutôt <a href="https://www.artima.com/intv/bloch13.html">un constructeur par copie</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org735975c" class="outline-4">
+<h4 id="org735975c"><span class="section-number-4">3.2.4</span> constructeur par copie</h4>
+<div class="outline-text-4" id="text-3-2-4">
+<div class="org-src-container">
+<pre class="src src-java">  <span style="color: #0000FF;">public</span> <span style="color: #006699;">ProgrammingPair</span>(<span style="color: #6434A3;">ProgrammingPair</span> <span style="color: #BA36A5;">other</span>){
+      driver= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Person</span>(other.driver);
+      navigator= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Person</span>(other.navigator);
+  }
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="img/ref-object-object-copy-cstor.png" alt="ref-object-object-copy-cstor.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org59add40" class="outline-3">
+<h3 id="org59add40"><span class="section-number-3">3.3</span> Remarque sur les objets de classes immuables</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+L'intérêt de créer des copies, plutôt que de partager des références
+sur des objets identiques, est d'assurer l'indépendance entre la copie
+et l'original : aucune modification de l'un n'aura d'impacts sur
+l'autre.
+</p>
+
+<p>
+Dans le cas d'objets qui ne peuvent pas être modifiés car ils sont
+des instances de classes <i>immuables</i> (<i>immutable</i>), il n'y a pas
+d'inconvénients à avoir des objets identiques. Ainsi, on considère la
+copie de instances des classes <code class="src src-java">ProgrammingPair</code> et des classes <code class="src src-java">Person</code>
+comme profondes même si les attributs contiennent des références vers
+des objets de classe <code class="src src-java">String</code> identiques :
+</p>
+
+
+<div class="figure">
+<p><img src="img/ref-object-object-copy-cstor-str.png" alt="ref-object-object-copy-cstor-str.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgab6c1ea" class="outline-3">
+<h3 id="orgab6c1ea"><span class="section-number-3">3.4</span> equals()</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+On doit aussi redéfinir la méthode <code class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #6434A3;">boolean</span> <span style="color: #006699;">equals</span>(<span style="color: #6434A3;">Object</span> <span style="color: #BA36A5;">other</span>)</code> :
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #6434A3;">boolean</span> <span style="color: #006699;">equals</span>(<span style="color: #6434A3;">Object</span> <span style="color: #BA36A5;">other</span>){
+    <span style="color: #0000FF;">if</span>((other == <span style="color: #D0372D;">null</span>) || !(other <span style="color: #0000FF;">instanceof</span> ProgrammingPair)){
+        <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">false</span>;
+    }
+    <span style="color: #6434A3;">ProgrammingPair</span> <span style="color: #BA36A5;">otherProgrammingPair</span> = (<span style="color: #6434A3;">ProgrammingPair</span>) other;
+    <span style="color: #0000FF;">return</span> driver.equals(otherProgrammingPair.driver)
+        &amp;&amp; navigator.equals(otherProgrammingPair.navigator);
+}
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3bf313e" class="outline-3">
+<h3 id="org3bf313e"><span class="section-number-3">3.5</span> Tableaux d'objets</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+Écrire une classe <code class="src src-java">Seminar</code> qui comporte:
+</p>
+<ul class="org-ul">
+<li>un attribut <code class="src src-java">coach</code> de type <code class="src src-java">Person</code></li>
+<li>un attribut <code class="src src-java">attendents</code> de type "tableau de
+Person"</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">import</span> <span style="color: #D0372D;">java</span>.<span style="color: #D0372D;">util</span>.<span style="color: #6434A3;">Arrays</span>;
+
+<span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">Seminar</span> {
+    <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">Person</span> <span style="color: #BA36A5;">coach</span>;
+    <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">Person</span>[] <span style="color: #BA36A5;">attendants</span>;
+
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">Seminar</span>(<span style="color: #6434A3;">Person</span> <span style="color: #BA36A5;">coach</span>, <span style="color: #6434A3;">Person</span>[] <span style="color: #BA36A5;">attendants</span>){
+        <span style="color: #0000FF;">this</span>.coach = <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Person</span>(coach);
+        <span style="color: #0000FF;">this</span>.attendants = <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Person</span>[attendants.length];
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>=0; i != attendants.length; ++i){
+            <span style="color: #0000FF;">this</span>.attendants[i] = <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Person</span>(attendants[i]);
+        }
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">Seminar</span>(<span style="color: #6434A3;">Seminar</span> <span style="color: #BA36A5;">other</span>){
+        <span style="color: #0000FF;">this</span>(other.coach, other.attendants);
+    }
+<span style="color: #8D8D84;">/*    </span><span style="color: #8D8D84; font-style: italic;">public boolean equals(Object other){</span>
+<span style="color: #8D8D84; font-style: italic;">        if((other == null) || !(other instanceof Seminar)){</span>
+<span style="color: #8D8D84; font-style: italic;">            return false;</span>
+<span style="color: #8D8D84; font-style: italic;">        }</span>
+<span style="color: #8D8D84; font-style: italic;">        Seminar otherSeminar = (Seminar)other;</span>
+<span style="color: #8D8D84; font-style: italic;">        return coach.equals(otherSeminar.coach)</span>
+<span style="color: #8D8D84; font-style: italic;">            &amp;&amp; Arrays.deepEquals(attendants, otherSeminar.attendants);</span>
+<span style="color: #8D8D84; font-style: italic;">        // on peut faire Arrays.equals(attendants, otherSeminar.attendants)</span>
+<span style="color: #8D8D84; font-style: italic;">        // on NE PEUT PAS faire attendants.equals(otherSeminar.attendants) !!!</span>
+<span style="color: #8D8D84; font-style: italic;">    }</span>
+<span style="color: #8D8D84; font-style: italic;">*/</span>
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">boolean</span> <span style="color: #006699;">equals</span>(<span style="color: #6434A3;">Object</span> <span style="color: #BA36A5;">other</span>){
+        <span style="color: #0000FF;">if</span>((other == <span style="color: #D0372D;">null</span>) || !(other <span style="color: #0000FF;">instanceof</span> Seminar)){
+            <span style="color: #0000FF;">return</span> <span style="color: #D0372D;">false</span>;
+        }
+        <span style="color: #6434A3;">Seminar</span> <span style="color: #BA36A5;">otherSeminar</span> = (<span style="color: #6434A3;">Seminar</span>)other;
+        <span style="color: #6434A3;">boolean</span> <span style="color: #BA36A5;">res</span> = coach.equals(otherSeminar.coach);
+        res &amp;= attendants.length == otherSeminar.attendants.length;
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>=0;  res &amp;&amp; (i != attendants.length); ++i){
+            res &amp;= attendants[i].equals(otherSeminar.attendants[i]);
+        }
+        <span style="color: #0000FF;">return</span> res;
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orga530fb3" class="outline-2">
+<h2 id="orga530fb3"><span class="section-number-2">4</span> Exercices</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org37138d5" class="outline-3">
+<h3 id="org37138d5"><span class="section-number-3">4.1</span> Tableau à deux dimensions de caractères</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Que fait le programme suivant ? Pourquoi ? Comment le corriger (pour qu'il affiche une croix) ?
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">DebugArr2D</span> {
+    <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">char</span>[] <span style="color: #006699;">initializedArray</span>(<span style="color: #6434A3;">char</span> <span style="color: #BA36A5;">c</span>, <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">nb</span>){
+        <span style="color: #6434A3;">char</span>[] <span style="color: #BA36A5;">res</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">char</span>[nb];
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>=0; i != res.length; ++i){
+            res[i]= c;
+        }
+        <span style="color: #0000FF;">return</span> res;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">char</span>[][] <span style="color: #006699;">initializedArray2D</span>(<span style="color: #6434A3;">char</span>[] <span style="color: #BA36A5;">arr</span>, <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">nb</span>){
+        <span style="color: #6434A3;">char</span>[][] <span style="color: #BA36A5;">res</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">char</span>[nb][];
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>=0; i != res.length; ++i){
+            res[i]= arr;
+        }
+        <span style="color: #0000FF;">return</span> res;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">display</span>(<span style="color: #6434A3;">char</span>[][] <span style="color: #BA36A5;">arr2D</span>){
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">char</span>[] <span style="color: #BA36A5;">row</span> : arr2D){
+            <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">char</span> <span style="color: #BA36A5;">c</span> : row){
+                System.out.print(c);
+            }
+            System.out.println();
+        }
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">main</span>(<span style="color: #6434A3;">String</span>[] <span style="color: #BA36A5;">args</span>){
+        <span style="color: #6434A3;">char</span>[][] <span style="color: #BA36A5;">screen</span>= initializedArray2D(initializedArray(<span style="color: #008000;">' '</span>, 20), 20);
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>= 0; i != Math.min(screen.length, screen[0].length); ++i){
+            screen[i][i]=<span style="color: #008000;">'X'</span>;
+            screen[screen.length-i-1][i]=<span style="color: #008000;">'X'</span>;
+        }
+        display(screen);
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2770bdc" class="outline-3">
+<h3 id="org2770bdc"><span class="section-number-3">4.2</span> Tableaux à deux dimensions d'objets</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Que fait le programme suivant ? Pourquoi ? Comment le corriger (pour qu'il affiche une croix) ?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">class</span> <span style="color: #6434A3;">Stone</span>{
+    <span style="color: #0000FF;">private</span> <span style="color: #6434A3;">boolean</span> <span style="color: #BA36A5;">firstPlayer</span>;
+    <span style="color: #0000FF;">public</span> <span style="color: #006699;">Stone</span>(<span style="color: #6434A3;">boolean</span> <span style="color: #BA36A5;">firstPlayer</span>) {
+        <span style="color: #0000FF;">this</span>.firstPlayer= firstPlayer;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">boolean</span> <span style="color: #006699;">isFirstPlayer</span>() {
+        <span style="color: #0000FF;">return</span> firstPlayer;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">setFirstPlayer</span>(<span style="color: #6434A3;">boolean</span> <span style="color: #BA36A5;">firstPlayer</span>) {
+        <span style="color: #0000FF;">this</span>.firstPlayer= firstPlayer;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #6434A3;">String</span> <span style="color: #006699;">toString</span>() {
+        <span style="color: #0000FF;">return</span> firstPlayer ? <span style="color: #008000;">"O"</span>:<span style="color: #008000;">"X"</span>;
+    }
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">DebugArray2DObjects</span> {
+    <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">Stone</span>[] <span style="color: #006699;">initializedArray</span>(<span style="color: #6434A3;">Stone</span> <span style="color: #BA36A5;">s</span>, <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">nb</span>){
+        <span style="color: #6434A3;">Stone</span>[] <span style="color: #BA36A5;">res</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Stone</span>[nb];
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>=0; i != res.length; ++i){
+            res[i]= s;
+        }
+        <span style="color: #0000FF;">return</span> res;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">Stone</span>[][] <span style="color: #006699;">initializedArray2D</span>(<span style="color: #6434A3;">Stone</span>[] <span style="color: #BA36A5;">arr</span>, <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">nb</span>){
+        <span style="color: #6434A3;">Stone</span>[][] <span style="color: #BA36A5;">res</span>= <span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Stone</span>[nb][];
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>=0; i != res.length; ++i){
+            res[i]= arr;
+        }
+        <span style="color: #0000FF;">return</span> res;
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">display</span>(<span style="color: #6434A3;">Stone</span>[][] <span style="color: #BA36A5;">board</span>){
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">Stone</span>[] <span style="color: #BA36A5;">row</span> : board){
+            <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">Stone</span> <span style="color: #BA36A5;">c</span> : row){
+                System.out.print(c);
+            }
+            System.out.println();
+        }
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">main</span>(<span style="color: #6434A3;">String</span>[] <span style="color: #BA36A5;">args</span>){
+        <span style="color: #6434A3;">Stone</span>[][] <span style="color: #BA36A5;">screen</span>= initializedArray2D(initializedArray(<span style="color: #0000FF;">new</span> <span style="color: #6434A3;">Stone</span>(<span style="color: #D0372D;">false</span>), 20), 20);
+        <span style="color: #0000FF;">for</span>(<span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>= 0; i != Math.min(screen.length, screen[0].length); ++i){
+            screen[i][i].setFirstPlayer(<span style="color: #D0372D;">true</span>);
+            screen[screen.length-i-1][i].setFirstPlayer(<span style="color: #D0372D;">true</span>);
+        }
+        display(screen);
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Auteur: Bernard Hugueney</p>
+<p class="date">Created: 2019-10-16 Wed 01:51</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

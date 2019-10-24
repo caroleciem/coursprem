@@ -1,0 +1,3 @@
+Quel langage à typage statique avez-vous vu en formation ?;Java;3
+Quel IDE utilisez-vous ?;INTELLIJ;1
+Quel langage à typage dynamique avez-vous vu en formation ?;python;2

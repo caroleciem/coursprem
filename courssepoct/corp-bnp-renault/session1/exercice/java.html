@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<!-- 2019-10-09 Wed 10:09 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Exercices d'introduction à Java</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Bernard Hugueney" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<style>*{font-family: monospace !important}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Exercices d'introduction à Java</h1>
+<div id="table-of-contents">
+<h2>Table des matières</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org97ec2b5">1. Étape 1 : Déclarons quelques variables</a></li>
+<li><a href="#org5aeae38">2. Étape 2 : Utilisons des opérateurs</a>
+<ul>
+<li><a href="#orgf2ae3de">2.1. Calcul de prix TTC</a></li>
+<li><a href="#org37cd217">2.2. Calcul composé</a></li>
+</ul>
+</li>
+<li><a href="#org1dddb6f">3. Étape 3 : Algorithmes</a>
+<ul>
+<li><a href="#org9a92ff7">3.1. Compréhension de code</a></li>
+<li><a href="#org38e19f4">3.2. Factorielles</a></li>
+<li><a href="#org3810b31">3.3. Affichage</a>
+<ul>
+<li><a href="#org4194331">3.3.1. 1D</a></li>
+<li><a href="#org28acf7a">3.3.2. 2D</a></li>
+</ul>
+</li>
+<li><a href="#org0db123d">3.4. Chaîne de caractères</a></li>
+<li><a href="#orgd7f0c4d">3.5. Nombres premiers</a></li>
+<li><a href="#org73b8416">3.6. Tableaux</a>
+<ul>
+<li><a href="#orgdea9f19">3.6.1. 1D</a></li>
+<li><a href="#orgcbcfdde">3.6.2. 2D</a></li>
+</ul>
+</li>
+<li><a href="#org433fc60">3.7. Tables</a></li>
+<li><a href="#org94be3b7">3.8. Représentation de table</a>
+<ul>
+<li><a href="#org0df3f6c">3.8.1. Table vide</a></li>
+<li><a href="#org8feb416">3.8.2. Table remplie</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgdc0463d">4. Étape 4 : Entrées / Sorties</a>
+<ul>
+<li><a href="#orgda8dfb2">4.1. Console</a>
+<ul>
+<li><a href="#orge05e977">4.1.1. Saisies au clavier</a></li>
+<li><a href="#org9e4009d">4.1.2. Menu</a></li>
+</ul>
+</li>
+<li><a href="#orgffaf7e5">4.2. Fichier</a></li>
+<li><a href="#orgf3bafb5">4.3. Gestion d'erreur</a>
+<ul>
+<li><a href="#org4f46490">4.3.1. Saisie de nombre</a></li>
+<li><a href="#org2a31b47">4.3.2. Problème d'accès fichier</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org97ec2b5" class="outline-2">
+<h2 id="org97ec2b5"><span class="section-number-2">1</span> Étape 1 : Déclarons quelques variables</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Dans un premier temps, on va juste déclarer quelques variables locales
+dans une fonction <code class="src src-java">main</code> d'une classe
+<code class="src src-java">ExosIntro</code> d'un projet <code>Exos</code>.
+</p>
+
+<dl class="org-dl">
+<dt>À faire</dt><dd>déclarer des variables permettant de vous décrire avec :
+<ul class="org-ul">
+<li>Votre prénom</li>
+<li>Votre nom</li>
+<li>Votre âge</li>
+<li>Votre taille en cm</li>
+<li>Quelques lignes qui expliquent pourquoi vous rejoignez la formation</li>
+<li>Le montant d'un compte bancaire</li>
+<li>Le fait qu'une année soit bissextile ou non</li>
+<li>La <i>couleur</i> d'une carte de jeu de cartes</li>
+<li>Une couleur ‽</li>
+</ul></dd>
+</dl>
+</div>
+</div>
+
+
+
+<div id="outline-container-org5aeae38" class="outline-2">
+<h2 id="org5aeae38"><span class="section-number-2">2</span> Étape 2 : Utilisons des opérateurs</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgf2ae3de" class="outline-3">
+<h3 id="orgf2ae3de"><span class="section-number-3">2.1</span> Calcul de prix TTC</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Déclarer une variable <code class="src src-java">prixHT</code> et une variable
+<code class="src src-java">tauxTVA</code>. Calculer et mettre dans une variable
+le prix TTC.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org37cd217" class="outline-3">
+<h3 id="org37cd217"><span class="section-number-3">2.2</span> Calcul composé</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Soit une variable <code class="src src-java">year</code>. Calculer et mettre
+dans une variable si cette année est bissextile ou non.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org1dddb6f" class="outline-2">
+<h2 id="org1dddb6f"><span class="section-number-2">3</span> Étape 3 : Algorithmes</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org9a92ff7" class="outline-3">
+<h3 id="org9a92ff7"><span class="section-number-3">3.1</span> Compréhension de code</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Essayer de deviner / comprendre ce que fait le code suivant :
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #0000FF;">public</span> <span style="color: #0000FF;">class</span> <span style="color: #6434A3;">Mystere</span>{
+    <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">main</span>(<span style="color: #6434A3;">String</span>[] <span style="color: #BA36A5;">args</span>){
+        System.out.println(mystere(0.01f));
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">float</span> <span style="color: #006699;">mystere</span>(<span style="color: #6434A3;">float</span> <span style="color: #BA36A5;">epsilon</span>){
+        <span style="color: #0000FF;">return</span> mystere(0.f, <span style="color: #D0372D;">Float</span>.MAX_VALUE, epsilon);
+    }
+    <span style="color: #0000FF;">public</span> <span style="color: #0000FF;">static</span> <span style="color: #6434A3;">float</span> <span style="color: #006699;">mystere</span>(<span style="color: #6434A3;">float</span> <span style="color: #BA36A5;">min</span>, <span style="color: #6434A3;">float</span> <span style="color: #BA36A5;">max</span>, <span style="color: #6434A3;">float</span> <span style="color: #BA36A5;">epsilon</span>){
+        <span style="color: #0000FF;">while</span>((max != min)){
+            <span style="color: #6434A3;">float</span> <span style="color: #BA36A5;">m</span> = max/2 + min/2;
+            <span style="color: #0000FF;">if</span>((m + epsilon) &gt; m){
+                min = Math.nextUp(m);
+            }<span style="color: #0000FF;">else</span>{
+                max = m;
+            }
+        }
+        <span style="color: #0000FF;">return</span> min;
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org38e19f4" class="outline-3">
+<h3 id="org38e19f4"><span class="section-number-3">3.2</span> Factorielles</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Écrire un programme qui affiche la factorielle d'un nombre.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3810b31" class="outline-3">
+<h3 id="org3810b31"><span class="section-number-3">3.3</span> Affichage</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+<div id="outline-container-org4194331" class="outline-4">
+<h4 id="org4194331"><span class="section-number-4">3.3.1</span> 1D</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+Écrire un programme qui affiche une règle graduée d'une longueur <code>n</code>,
+avec des graduations tous les 5 pas. Par exemple :
+</p>
+<dl class="org-dl">
+<dt>n = 1</dt><dd><code>[-]</code></dd>
+<dt>n = 6</dt><dd><code>[----+-]</code></dd>
+<dt>n = 10</dt><dd><code>[----+----+]</code></dd>
+<dt>n = 12</dt><dd><code>[----+----+--]</code></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org28acf7a" class="outline-4">
+<h4 id="org28acf7a"><span class="section-number-4">3.3.2</span> 2D</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<p>
+Écrire un programme qui affiche un rectangle de taille <code>nColonnes</code> par
+<code>nLignes</code>. Par exemple :
+</p>
+<dl class="org-dl">
+<dt>nColonnes = 1, nLignes = 1</dt><dd></dd>
+</dl>
+<div class="org-src-container">
+<pre class="src src-org">+-+
+<span style="color: #006400; background-color: #EAFFEA;">| |</span>
++-+
+</pre>
+</div>
+
+
+<dl class="org-dl">
+<dt>nColonnes = 3, nLignes = 1</dt><dd></dd>
+</dl>
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #006400; background-color: #EAFFEA;">+---+</span>
+<span style="color: #006400; background-color: #EAFFEA;">|   |</span>
+<span style="color: #006400; background-color: #EAFFEA;">+---+</span>
+</pre>
+</div>
+
+<dl class="org-dl">
+<dt>nColonnes = 5, nLignes = 3</dt><dd></dd>
+</dl>
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #006400; background-color: #EAFFEA;">+-----+</span>
+<span style="color: #006400; background-color: #EAFFEA;">|     |</span>
+<span style="color: #006400; background-color: #EAFFEA;">|     |</span>
+<span style="color: #006400; background-color: #EAFFEA;">|     |</span>
+<span style="color: #006400; background-color: #EAFFEA;">+-----+</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org0db123d" class="outline-3">
+<h3 id="org0db123d"><span class="section-number-3">3.4</span> Chaîne de caractères</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Écrire un programme qui affiche si une chaîne de caractères donnée est
+un palindrome ou non.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd7f0c4d" class="outline-3">
+<h3 id="orgd7f0c4d"><span class="section-number-3">3.5</span> Nombres premiers</h3>
+<div class="outline-text-3" id="text-3-5">
+<ul class="org-ul">
+<li>Écrire un programme qui permette de savoir si un nombre donné est
+premier ou non.</li>
+<li>Écrire un programme qui affiche les nombres premiers inférieurs ou
+égaux à un nombre donné.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org73b8416" class="outline-3">
+<h3 id="org73b8416"><span class="section-number-3">3.6</span> Tableaux</h3>
+<div class="outline-text-3" id="text-3-6">
+</div>
+<div id="outline-container-orgdea9f19" class="outline-4">
+<h4 id="orgdea9f19"><span class="section-number-4">3.6.1</span> 1D</h4>
+<div class="outline-text-4" id="text-3-6-1">
+<dl class="org-dl">
+<dt>Nombres</dt><dd>Écrire un programme qui permette d'afficher la valeur
+maximale d'un tableau de nombres.</dd>
+<dt>Chaînes de caractères</dt><dd>Écrire un programme qui permette d'afficher
+la taille de la chaîne de caractères la plus longue d'un tableau
+de chaînes de caractères.</dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-orgcbcfdde" class="outline-4">
+<h4 id="orgcbcfdde"><span class="section-number-4">3.6.2</span> 2D</h4>
+<div class="outline-text-4" id="text-3-6-2">
+<dl class="org-dl">
+<dt>Nombres</dt><dd>Écrire un programme qui permette d'afficher la valeur
+maximale d'un tableau de tableaux de nombres.</dd>
+<dt>Chaînes de caractères</dt><dd>Écrire un programme qui permette d'afficher
+la taille de la chaîne de caractères la plus longue d'un tableau
+de tableaux de chaînes de caractères.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org433fc60" class="outline-3">
+<h3 id="org433fc60"><span class="section-number-3">3.7</span> Tables</h3>
+<div class="outline-text-3" id="text-3-7">
+<p>
+Écrire un programme qui permette d'afficher la table de multiplication
+jusqu'à n × m. Par exemple :
+</p>
+
+<dl class="org-dl">
+<dt>n = 3, m = 4</dt><dd></dd>
+</dl>
+<div class="org-src-container">
+<pre class="src src-org"> 1  2  3  4
+ 2  4  6  8
+ 3  6  9 12
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org94be3b7" class="outline-3">
+<h3 id="org94be3b7"><span class="section-number-3">3.8</span> Représentation de table</h3>
+<div class="outline-text-3" id="text-3-8">
+</div>
+<div id="outline-container-org0df3f6c" class="outline-4">
+<h4 id="org0df3f6c"><span class="section-number-4">3.8.1</span> Table vide</h4>
+<div class="outline-text-4" id="text-3-8-1">
+<p>
+Écrire un programme qui permet d'afficher une table, en représentant
+les lignes et les colonnes, de <code>nColonnes</code> par <code>nLignes</code>. Par
+exemple :
+</p>
+<dl class="org-dl">
+<dt>nColonnes = 1, nLignes = 1</dt><dd></dd>
+</dl>
+<div class="org-src-container">
+<pre class="src src-org">&#9487;&#9473;&#9491;
+&#9475; &#9475;
+&#9495;&#9473;&#9499;
+</pre>
+</div>
+
+
+<dl class="org-dl">
+<dt>nColonnes = 2, nLignes = 1</dt><dd></dd>
+</dl>
+<div class="org-src-container">
+<pre class="src src-org">&#9487;&#9473;&#9523;&#9473;&#9491;
+&#9475; &#9475; &#9475;
+&#9495;&#9473;&#9531;&#9473;&#9499;
+</pre>
+</div>
+
+<dl class="org-dl">
+<dt>nColonnes = 3, nLignes = 2</dt><dd></dd>
+</dl>
+<div class="org-src-container">
+<pre class="src src-org">&#9487;&#9473;&#9523;&#9473;&#9523;&#9473;&#9491;
+&#9475; &#9475; &#9475; &#9475;
+&#9507;&#9473;&#9547;&#9473;&#9547;&#9473;&#9515;
+&#9475; &#9475; &#9475; &#9475;
+&#9495;&#9473;&#9531;&#9473;&#9531;&#9473;&#9499;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8feb416" class="outline-4">
+<h4 id="org8feb416"><span class="section-number-4">3.8.2</span> Table remplie</h4>
+<div class="outline-text-4" id="text-3-8-2">
+<p>
+Écrire un programme qui permette d'afficher une table de
+multiplication jusqu'à n × m en représentant les lignes et les
+colonnes. Par exemple :
+</p>
+
+<dl class="org-dl">
+<dt>n = 2, m = 3</dt><dd></dd>
+</dl>
+<div class="org-src-container">
+<pre class="src src-org">&#9487;&#9473;&#9523;&#9473;&#9523;&#9473;&#9491;
+&#9475;1&#9475;2&#9475;3&#9475;
+&#9507;&#9473;&#9547;&#9473;&#9547;&#9473;&#9515;
+&#9475;2&#9475;4&#9475;6&#9475;
+&#9495;&#9473;&#9531;&#9473;&#9531;&#9473;&#9499;
+</pre>
+</div>
+
+<dl class="org-dl">
+<dt>n = 3, m = 4</dt><dd></dd>
+</dl>
+<div class="org-src-container">
+<pre class="src src-org">&#9487;&#9473;&#9473;&#9523;&#9473;&#9473;&#9523;&#9473;&#9473;&#9523;&#9473;&#9473;&#9491;
+&#9475; 1&#9475; 2&#9475; 3&#9475; 4&#9475;
+&#9507;&#9473;&#9473;&#9547;&#9473;&#9473;&#9547;&#9473;&#9473;&#9547;&#9473;&#9473;&#9515;
+&#9475; 2&#9475; 4&#9475; 6&#9475; 8&#9475;
+&#9507;&#9473;&#9473;&#9547;&#9473;&#9473;&#9547;&#9473;&#9473;&#9547;&#9473;&#9473;&#9515;
+&#9475; 3&#9475; 6&#9475; 9&#9475;12&#9475;
+&#9495;&#9473;&#9473;&#9531;&#9473;&#9473;&#9531;&#9473;&#9473;&#9531;&#9473;&#9473;&#9499;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdc0463d" class="outline-2">
+<h2 id="orgdc0463d"><span class="section-number-2">4</span> Étape 4 : Entrées / Sorties</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgda8dfb2" class="outline-3">
+<h3 id="orgda8dfb2"><span class="section-number-3">4.1</span> Console</h3>
+<div class="outline-text-3" id="text-4-1">
+</div>
+<div id="outline-container-orge05e977" class="outline-4">
+<h4 id="orge05e977"><span class="section-number-4">4.1.1</span> Saisies au clavier</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<p>
+Modifier le code déjà écrit pour lire les données au clavier.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9e4009d" class="outline-4">
+<h4 id="org9e4009d"><span class="section-number-4">4.1.2</span> Menu</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<p>
+Écrire un programme qui propose d'exécuter les différentes
+fonctionnalités implémentées en choisissant à partir d'un menu.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgffaf7e5" class="outline-3">
+<h3 id="orgffaf7e5"><span class="section-number-3">4.2</span> Fichier</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Modifier le programme précédent pour qu'il puisse prendre en compte un
+argument au lancement du programme. Si le programme reçoit un
+argument, il doit être utilisé comme le nom d'un fichier dans lequel
+chercher toutes les données (y compris les choix de menus).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf3bafb5" class="outline-3">
+<h3 id="orgf3bafb5"><span class="section-number-3">4.3</span> Gestion d'erreur</h3>
+<div class="outline-text-3" id="text-4-3">
+</div>
+<div id="outline-container-org4f46490" class="outline-4">
+<h4 id="org4f46490"><span class="section-number-4">4.3.1</span> Saisie de nombre</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<p>
+Modifier le programme précédent pour que, si une saisie invalide est
+faite dans le menu, une nouvelle saisie soit proposée.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2a31b47" class="outline-4">
+<h4 id="org2a31b47"><span class="section-number-4">4.3.2</span> Problème d'accès fichier</h4>
+<div class="outline-text-4" id="text-4-3-2">
+<p>
+Modifier le programme précédent pour que, si un nom de fichier est
+passé en argument mais que l'accès à celui-ci n'est pas possible, un
+nouveau nom de fichier soit demandé interactivement.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Auteur: Bernard Hugueney</p>
+<p class="date">Created: 2019-10-09 Wed 10:09</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
